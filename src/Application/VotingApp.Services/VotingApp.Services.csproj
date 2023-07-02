@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\VotingApp.Infrastructure\VotingApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\VotingApp.Dto\VotingApp.Dto.csproj" />
+  </ItemGroup>
+
+</Project>
