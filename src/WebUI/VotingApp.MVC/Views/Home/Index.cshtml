@@ -1,8 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<PollResponse>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    @foreach (var pollDisplay in Model)
+    {
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Poll Title : @pollDisplay.Title</h4>
+                    <p class="card-text">Poll Description : @pollDisplay.Description</p>
+                    <p class="card-text"> CreatedById : @pollDisplay.CreatedById</p>
+                    <p class="card-text">CreatedByFirstName : @pollDisplay.CreatedBy.FirstName</p>
+                    @foreach (var questionDisplay in pollDisplay.Questions)
+                    {
+                        <p class="card-text">Question ID : @questionDisplay.Id</p>
+                        <p class="card-text">Question Title : @questionDisplay.Title</p>
+                        <br />
+
+                        <br />
+
+                        @foreach(var optionDisplay in questionDisplay.Options)
+                        {
+                            <p class="card-text">option id : @optionDisplay.Id</p>
+                            <p class="card-text">option name : @optionDisplay.Name</p>
+                            <p class="card-text">option count : @optionDisplay.Count</p>
+                            <p class="card-text">option poll id : @optionDisplay.PollId</p>
+
+                            <br />
+                        }
+                        <br />
+
+                        <br />
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
 </div>

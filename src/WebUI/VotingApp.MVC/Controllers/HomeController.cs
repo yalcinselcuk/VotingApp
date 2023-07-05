@@ -1,21 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using VotingApp.MVC.Models;
+using VotingApp.Services;
 
 namespace VotingApp.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPollService pollService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IPollService pollService)
         {
             _logger = logger;
+            this.pollService = pollService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var polls = pollService.GetPollResponse();
+            return View(polls);
+            
         }
 
         public IActionResult Privacy()
