@@ -15,7 +15,7 @@ namespace VotingApp.Entities
         public int Count { get; set; }
 
         public int PollId { get; set; }
-        public Poll Poll { get; set; }
+        public Poll? Poll { get; set; }
 
     }
 }

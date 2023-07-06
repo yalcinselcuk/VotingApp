@@ -18,6 +18,6 @@ namespace VotingApp.Entities
         public int CreatedById { get; set; }
         public User CreatedBy { get; set; }
 
-        public ICollection<Question> Questions { get; set; } 
+        public ICollection<Question?> Questions { get; set; } 
     }
 }

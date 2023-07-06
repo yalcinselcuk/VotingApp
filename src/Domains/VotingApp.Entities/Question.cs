@@ -13,7 +13,7 @@ namespace VotingApp.Entities
         [Required]
         public string Title { get; set; }
 
-        public ICollection<Option> Options { get; set; }
+        public ICollection<Option?> Options { get; set; }
 
     }
 }
