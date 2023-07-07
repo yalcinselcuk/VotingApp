@@ -63,7 +63,7 @@ namespace VotingApp.Infrastructure.Repositories
         }
         public async Task<IEnumerable<Poll>> GetPollsByName(string name)
         {
-            return await votingDbContext.Polls.AsNoTracking().Where(c => c.Title.Contains(name)).ToListAsync();
+            return await votingDbContext.Polls.AsNoTracking().Where(p => p.Title.Contains(name)).ToListAsync();
         }
 
         public async Task<bool> IsExistsAsync(int pollId)

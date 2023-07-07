@@ -10,7 +10,9 @@ namespace VotingApp.Services
 {
     public interface IPollService
     {
+        PollResponse GetPolls(int id);
         IEnumerable<PollResponse> GetPollResponse();
+        Task<IEnumerable<PollResponse>> SearchByName(string pollName);
         Task CreatePollAsync(CreateNewPollRequest createNewPollRequest);
         Task UpdatePoll(UpdatePollRequest updatePollRequest);
         Task DeletePoll(DeletePollRequest deletePollRequest);

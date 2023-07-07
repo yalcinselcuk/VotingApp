@@ -62,5 +62,17 @@ namespace VotingApp.Services
             var poll = await pollRepository.GetAsync(id);
             return mapper.Map<DeletePollRequest>(poll);
         }
+
+        public async Task<IEnumerable<PollResponse>> SearchByName(string pollName)
+        {
+            var polls = await pollRepository.GetPollsByName(pollName);
+            return mapper.Map<IEnumerable<PollResponse>>(polls);
+        }
+
+        public PollResponse GetPolls(int id)
+        {
+            var polls = pollRepository.Get(id);
+            return mapper.Map<PollResponse>(polls);
+        }
     }
 }

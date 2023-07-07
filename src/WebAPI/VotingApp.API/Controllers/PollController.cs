@@ -20,5 +20,25 @@ namespace VotingApp.API.Controllers
             var polls = _pollService.GetPollResponse();
             return Ok(polls);
         }
+
+        [HttpGet("{id:int}")]//iki tane aynı get metodu çakışacağından diğerini belirtmemiz, ayırt etmemiz gerekiyor
+        public IActionResult GetPolls(int id)
+        {
+            var polls = _pollService.GetPolls(id);
+            if (polls == null)
+            {
+                return NotFound();
+            }
+            return Ok(polls);
+        }
+
+        [HttpGet("[action]")]//action dediğimizde artık metod adına göre cagirir
+        public async Task<IActionResult> SearchPollByName(string name)
+        {
+            var polls = await _pollService.SearchByName(name);
+            return Ok(polls);
+        }
+        //controller'da iki tane default httpget olmaz 
+        
     }
 }
