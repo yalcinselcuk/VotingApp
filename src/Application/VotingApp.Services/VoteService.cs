@@ -52,14 +52,16 @@ namespace VotingApp.Services
             await voteRepository.UpdateAsync(vote);
         }
 
-        public Task DeleteVote(DeleteVoteRequest deleteVoteRequest)
+        public async Task DeleteVote(DeleteVoteRequest deleteVoteRequest)
         {
-            throw new NotImplementedException();
+            var vote = mapper.Map<Vote>(deleteVoteRequest);
+            await voteRepository.DeleteAsync(vote);
         }
 
-        public Task<DeleteUserRequest> GetUserForDeleteAsync(int id)
+        public async Task<DeleteVoteRequest> GetVoteForDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var vote = await voteRepository.GetAsync(id);
+            return mapper.Map<DeleteVoteRequest>(vote);
         }
 
         public async Task<int> CreateVoteAndReturnIdAsync(CreateNewVoteRequest createNewVoteRequest)

@@ -53,5 +53,32 @@ namespace VotingApp.API.Controllers
             return BadRequest(ModelState);//request'in kurallarına uymadıysa direk exception yesin
         }
 
+        [HttpPut("{id}")]//ıdempotent = hep aynı sonuc
+        public async Task<IActionResult> Update(int id, UpdatePollRequest updatePollRequest)
+        {
+            var isExist = await _pollService.PollIsExists(id);
+            if (isExist)//varsa güncelleyeceğiz
+            {
+                if (ModelState.IsValid)//kurallara uyuyor mu
+                {
+                    await _pollService.UpdatePoll(updatePollRequest);
+                    return Ok();//201 de dönebiliriz
+                }
+                return BadRequest(ModelState);
+            }
+            return NotFound();//yoksa 
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await _pollService.PollIsExists(id))//böyle bir şey varsa
+            {
+                var poll = await _pollService.GetPollForDeleteAsync(id);
+                await _pollService.DeletePoll(poll);
+                return Ok();
+            }
+            return NotFound();
+        }
+
     }
 }

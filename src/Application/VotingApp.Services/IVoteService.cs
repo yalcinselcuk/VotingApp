@@ -16,7 +16,7 @@ namespace VotingApp.Services
         Task UpdateVote(UpdateVoteRequest updateVoteRequest);
         Task DeleteVote(DeleteVoteRequest deleteVoteRequest);
 
-        Task<DeleteUserRequest> GetUserForDeleteAsync(int id);
+        Task<DeleteVoteRequest> GetVoteForDeleteAsync(int id);
         Task<UpdateVoteRequest> GetVoteForUpdateAsync(int id);
         Task<bool> VoteIsExists(int voteId);
     }
