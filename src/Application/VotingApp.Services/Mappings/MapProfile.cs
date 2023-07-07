@@ -32,6 +32,14 @@ namespace VotingApp.Services.Mappings
             CreateMap<UpdateUserRequest, User>().ReverseMap();
             CreateMap<UpdateVoteRequest, Vote>().ReverseMap();
 
+            CreateMap<DeleteOptionRequest, Option>().ReverseMap();
+            CreateMap<DeletePollRequest, Poll>().ReverseMap();
+            CreateMap<DeleteQuestionRequest, Question>().ReverseMap();
+            CreateMap<DeleteUserRequest, User>().ReverseMap();
+            CreateMap<DeleteVoteRequest, Vote>().ReverseMap();
+
+
+
         }
 
     }

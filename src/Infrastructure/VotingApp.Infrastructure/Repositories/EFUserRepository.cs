@@ -24,9 +24,10 @@ namespace VotingApp.Infrastructure.Repositories
             await votingDbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAync(int id)
+        
+        public async Task DeleteAsync(User entity)
         {
-            var deletingUser = await votingDbContext.Users.FindAsync(id);
+            var deletingUser = await votingDbContext.Users.FindAsync(entity.Id);
             votingDbContext.Users.Remove(deletingUser);
             await votingDbContext.SaveChangesAsync();
         }

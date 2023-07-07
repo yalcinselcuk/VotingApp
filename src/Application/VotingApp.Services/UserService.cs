@@ -51,5 +51,16 @@ namespace VotingApp.Services
             var user = mapper.Map<User>(updateUserRequest);
             await userRepository.UpdateAsync(user);
         }
+        public async Task DeleteUser(DeleteUserRequest deleteUserRequest)
+        {
+            var user = mapper.Map<User>(deleteUserRequest);
+            await userRepository.DeleteAsync(user);
+
+        }
+        public async Task<DeleteUserRequest> GetUserForDeleteAsync(int id)
+        {
+            var user = await userRepository.GetAsync(id);
+            return mapper.Map<DeleteUserRequest>(user);
+        }
     }
 }

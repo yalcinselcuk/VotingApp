@@ -51,5 +51,16 @@ namespace VotingApp.Services
             var question = mapper.Map<Question>(updateQuestionRequest);
             await questionRepository.UpdateAsync(question);
         }
+        public async Task DeleteQuestion(DeleteQuestionRequest deleteQuestionRequest)
+        {
+            var question = mapper.Map<Question>(deleteQuestionRequest);
+            await questionRepository.DeleteAsync(question);
+
+        }
+        public async Task<DeleteQuestionRequest> GetQuestionForDeleteAsync(int id)
+        {
+            var question = await questionRepository.GetAsync(id);
+            return mapper.Map<DeleteQuestionRequest>(question);
+        }
     }
 }

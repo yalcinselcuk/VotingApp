@@ -51,5 +51,17 @@ namespace VotingApp.Services
             var option = mapper.Map<Option>(updateOptionRequest);
             await optionRepository.UpdateAsync(option);
         }
+
+        public async Task DeleteOption(DeleteOptionRequest deleteOptionRequest)
+        {
+            var option = mapper.Map<Option>(deleteOptionRequest);
+            await optionRepository.DeleteAsync(option);
+
+        }
+        public async Task<DeleteOptionRequest> GetOptionForDeleteAsync(int id)
+        {
+            var option = await optionRepository.GetAsync(id);
+            return mapper.Map<DeleteOptionRequest>(option);
+        }
     }
 }
