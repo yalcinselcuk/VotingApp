@@ -10,6 +10,7 @@ namespace VotingApp.Dto.Requests
 {
     public class UpdatePollRequest
     {
+        public int Id { get; set; }
 
         [Required]
         public string Title { get; set; }
