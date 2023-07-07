@@ -12,6 +12,7 @@ namespace VotingApp.Services
     {
         IEnumerable<UserResponse> GetUserResponse();
         Task CreateUserAsync(CreateNewUserRequest createNewUserRequest1);
+        Task<int> CreateUserAndReturnIdAsync(CreateNewUserRequest createNewUserRequest);
         Task UpdateUser(UpdateUserRequest updateUserRequest);
         Task DeleteUser(DeleteUserRequest deleteUserRequest);
 

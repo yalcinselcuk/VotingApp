@@ -62,5 +62,12 @@ namespace VotingApp.Services
             var question = await questionRepository.GetAsync(id);
             return mapper.Map<DeleteQuestionRequest>(question);
         }
+
+        public async Task<int> CreateQuestionAndReturnIdAsync(CreateNewQuestionRequest createNewQuestionRequest)
+        {
+            var question = mapper.Map<Question>(createNewQuestionRequest);
+            await questionRepository.CreateAsync(question);
+            return question.Id;
+        }
     }
 }

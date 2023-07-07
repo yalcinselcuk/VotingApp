@@ -74,5 +74,12 @@ namespace VotingApp.Services
             var polls = pollRepository.Get(id);
             return mapper.Map<PollResponse>(polls);
         }
+
+        public async Task<int> CreatePollAndReturnIdAsync(CreateNewPollRequest createNewPollRequest)
+        {
+            var poll = mapper.Map<Poll>(createNewPollRequest);
+            await pollRepository.CreateAsync(poll);
+            return poll.Id;
+        }
     }
 }

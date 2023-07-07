@@ -12,6 +12,7 @@ namespace VotingApp.Services
     {
         IEnumerable<OptionResponse> GetOptionResponse();
         Task CreateOptionAsync(CreateNewOptionRequest createNewOptionRequest);
+        Task<int> CreateOptionAndReturnIdAsync(CreateNewOptionRequest createNewOptionRequest);
         Task UpdateOption(UpdateOptionRequest updateOptionRequest);
         Task DeleteOption(DeleteOptionRequest deleteOptionRequest);
         Task<DeleteOptionRequest> GetOptionForDeleteAsync(int id);

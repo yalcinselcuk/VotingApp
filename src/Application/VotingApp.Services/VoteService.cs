@@ -61,5 +61,12 @@ namespace VotingApp.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> CreateVoteAndReturnIdAsync(CreateNewVoteRequest createNewVoteRequest)
+        {
+            var vote = mapper.Map<Vote>(createNewVoteRequest);
+            await voteRepository.CreateAsync(vote);
+            return vote.Id;
+        }
     }
 }

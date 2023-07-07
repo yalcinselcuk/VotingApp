@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VotingApp.Dto.Requests;
 using VotingApp.Services;
 
 namespace VotingApp.API.Controllers
@@ -39,6 +40,18 @@ namespace VotingApp.API.Controllers
             return Ok(polls);
         }
         //controller'da iki tane default httpget olmaz 
-        
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateNewPollRequest request)
+        {
+            if (ModelState.IsValid)//request'in kurallarına uydun mu, uyduysa
+            {
+                var lastPollId = await _pollService.CreatePollAndReturnIdAsync(request);//int döndürmesi daha anlamlı olur kullanılan metodun
+                return CreatedAtAction(nameof(GetPolls), routeValues: new { id = lastPollId }, null); //201 döndürür, yani yeni bir kaynak oluşturulduğunu bildirir.
+                                                                                                           //evet bu yeni isteği kaydettim ve bunun detaylarına şu linkten ulaşabilirsin diyoruz
+            }
+            return BadRequest(ModelState);//request'in kurallarına uymadıysa direk exception yesin
+        }
+
     }
 }

@@ -14,6 +14,7 @@ namespace VotingApp.Services
         IEnumerable<PollResponse> GetPollResponse();
         Task<IEnumerable<PollResponse>> SearchByName(string pollName);
         Task CreatePollAsync(CreateNewPollRequest createNewPollRequest);
+        Task<int> CreatePollAndReturnIdAsync(CreateNewPollRequest createNewPollRequest);
         Task UpdatePoll(UpdatePollRequest updatePollRequest);
         Task DeletePoll(DeletePollRequest deletePollRequest);
 
