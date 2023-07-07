@@ -6,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Entities;
 
-namespace VotingApp.Dto.Responses
+namespace VotingApp.Dto.Requests
 {
-    public class VoteResponse
+    public class CreateNewVoteRequest
     {
-        public int Id { get; set; }
         [Required]
         public string Value { get; set; }
         public int? OptionId { get; set; }
@@ -20,6 +19,5 @@ namespace VotingApp.Dto.Responses
         public Poll? Poll { get; set; }
         public int? UserId { get; set; }//boş geçilebilir
         public User? User { get; set; }
-
     }
 }

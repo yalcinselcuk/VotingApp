@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Requests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Domains\VotingApp.Entities\VotingApp.Entities.csproj" />
   </ItemGroup>
 

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VotingApp.Dto.Requests;
 using VotingApp.Dto.Responses;
+using VotingApp.Entities;
 using VotingApp.Infrastructure.Repositories;
 
 namespace VotingApp.Services
@@ -18,6 +20,12 @@ namespace VotingApp.Services
         {
             this.pollRepository = pollRepository;
             this.mapper = mapper;
+        }
+
+        public  async Task CreatePollAsync(CreateNewPollRequest createNewPollRequest)
+        {
+            var poll = mapper.Map<Poll>(createNewPollRequest);
+            await pollRepository.CreateAsync(poll);
         }
 
         public IEnumerable<PollResponse> GetPollResponse()
