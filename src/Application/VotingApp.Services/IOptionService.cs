@@ -12,5 +12,8 @@ namespace VotingApp.Services
     {
         IEnumerable<OptionResponse> GetOptionResponse();
         Task CreateOptionAsync(CreateNewOptionRequest createNewOptionRequest);
+        Task<UpdateOptionRequest> GetOptionForUpdateAsync(int id);
+        Task UpdateOption(UpdateOptionRequest updateOptionRequest);
+        Task<bool> OptionIsExists(int optionId);
     }
 }

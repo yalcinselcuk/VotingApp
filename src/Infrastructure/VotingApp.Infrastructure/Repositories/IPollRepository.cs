@@ -4,6 +4,7 @@ namespace VotingApp.Infrastructure.Repositories
 {
     public interface IPollRepository : IRepository<Poll>
     {
-        public IEnumerable<Poll> GetPollsByName(string name);
+        public Task<IEnumerable<Poll>> GetPollsByName(string name);
+        Task<bool> IsExistsAsync(int pollId);
     }
 }

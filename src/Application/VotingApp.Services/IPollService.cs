@@ -12,5 +12,8 @@ namespace VotingApp.Services
     {
         IEnumerable<PollResponse> GetPollResponse();
         Task CreatePollAsync(CreateNewPollRequest createNewPollRequest);
+        Task<UpdatePollRequest> GetPollForUpdateAsync(int id);
+        Task UpdatePoll(UpdatePollRequest updatePollRequest);
+        Task<bool> PollIsExists(int pollId);
     }
 }

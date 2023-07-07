@@ -9,5 +9,6 @@ namespace VotingApp.Infrastructure.Repositories
 {
     public interface IVoteRepository : IRepository<Vote>
     {
+        Task<bool> IsExistsAsync(int voteId);
     }
 }

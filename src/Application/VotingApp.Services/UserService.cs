@@ -34,5 +34,22 @@ namespace VotingApp.Services
             var response = mapper.Map<IEnumerable<UserResponse>>(users);
             return response;
         }
+        public async Task<UpdateUserRequest> GetUserForUpdateAsync(int id)
+        {
+            var user = await userRepository.GetAsync(id);
+            return mapper.Map<UpdateUserRequest>(user);
+        }
+
+
+        public async Task<bool> UserIsExists(int userId)
+        {
+            return await userRepository.IsExistsAsync(userId);
+        }
+
+        public async Task UpdateUser(UpdateUserRequest updateUserRequest)
+        {
+            var user = mapper.Map<User>(updateUserRequest);
+            await userRepository.UpdateAsync(user);
+        }
     }
 }

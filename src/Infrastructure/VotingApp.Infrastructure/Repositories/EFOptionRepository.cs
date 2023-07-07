@@ -13,6 +13,10 @@ namespace VotingApp.Infrastructure.Repositories
     public class EFOptionRepository : IOptionRepository
     {
         private readonly VotingDbContext votingDbContext;
+        public EFOptionRepository(VotingDbContext votingDbContext)
+        {
+            this.votingDbContext = votingDbContext;
+        }
 
         public async Task CreateAsync(Option entity)
         {
@@ -50,6 +54,11 @@ namespace VotingApp.Infrastructure.Repositories
         public async Task<Option?> GetAsync(int id)
         {
             return await votingDbContext.Options.AsNoTracking().FirstOrDefaultAsync(o => o.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int optionId)
+        {
+            return await votingDbContext.Options.AnyAsync(o => o.Id == optionId);
         }
 
         public async Task UpdateAsync(Option entity)

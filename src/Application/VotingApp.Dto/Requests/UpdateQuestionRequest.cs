@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VotingApp.Entities;
 
-namespace VotingApp.Entities
+namespace VotingApp.Dto.Requests
 {
-    public class Question :IEntity
+    public class UpdateQuestionRequest
     {
         public int Id { get; set; }
 
@@ -15,6 +16,5 @@ namespace VotingApp.Entities
         public string Title { get; set; }
 
         public ICollection<Option?> Options { get; set; }
-
     }
 }

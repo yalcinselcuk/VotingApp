@@ -9,5 +9,6 @@ namespace VotingApp.Infrastructure.Repositories
 {
     public interface IOptionRepository : IRepository<Option>
     {
+        Task<bool> IsExistsAsync(int optionId);
     }
 }

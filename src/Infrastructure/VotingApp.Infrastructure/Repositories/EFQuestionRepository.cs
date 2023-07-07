@@ -14,6 +14,11 @@ namespace VotingApp.Infrastructure.Repositories
     {
         private readonly VotingDbContext votingDbContext;
 
+        public EFQuestionRepository(VotingDbContext votingDbContext)
+        {
+            this.votingDbContext = votingDbContext;
+        }
+
         public async Task CreateAsync(Question entity)
         {
             await votingDbContext.Questions.AddAsync(entity);
@@ -50,6 +55,11 @@ namespace VotingApp.Infrastructure.Repositories
         public async Task<Question?> GetAsync(int id)
         {
             return await votingDbContext.Questions.AsNoTracking().FirstOrDefaultAsync(q => q.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int questionId)
+        {
+            return await votingDbContext.Questions.AnyAsync(q => q.Id == questionId);
         }
 
         public async Task UpdateAsync(Question entity)

@@ -34,5 +34,22 @@ namespace VotingApp.Services
             var response = mapper.Map<IEnumerable<QuestionResponse>>(questions);
             return response;
         }
+        public async Task<UpdateQuestionRequest> GetQuestionForUpdateAsync(int id)
+        {
+            var question = await questionRepository.GetAsync(id);
+            return mapper.Map<UpdateQuestionRequest>(question);
+        }
+
+
+        public async Task<bool> QuestionIsExists(int questionId)
+        {
+            return await questionRepository.IsExistsAsync(questionId);
+        }
+
+        public async Task UpdateQuestion(UpdateQuestionRequest updateQuestionRequest)
+        {
+            var question = mapper.Map<Question>(updateQuestionRequest);
+            await questionRepository.UpdateAsync(question);
+        }
     }
 }

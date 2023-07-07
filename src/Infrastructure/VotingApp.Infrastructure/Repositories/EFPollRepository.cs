@@ -61,10 +61,14 @@ namespace VotingApp.Infrastructure.Repositories
             votingDbContext.Polls.Update(entity);
             await votingDbContext.SaveChangesAsync();
         }
-        public IEnumerable<Poll> GetPollsByName(string name)
+        public async Task<IEnumerable<Poll>> GetPollsByName(string name)
         {
-            throw new NotImplementedException();
+            return await votingDbContext.Polls.AsNoTracking().Where(c => c.Title.Contains(name)).ToListAsync();
         }
 
+        public async Task<bool> IsExistsAsync(int pollId)
+        {
+            return await votingDbContext.Polls.AnyAsync(p => p.Id == pollId);
+        }
     }
 }

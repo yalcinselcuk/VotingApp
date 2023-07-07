@@ -11,6 +11,7 @@ namespace VotingApp.Entities
     public class Vote : IEntity
     {
         public int Id { get; set; }
+
         [Required]
         public string Value { get; set; }
         public int? OptionId { get; set; }

@@ -13,6 +13,10 @@ namespace VotingApp.Infrastructure.Repositories
     public class EFUserRepository : IUserRepository
     {
         private readonly VotingDbContext votingDbContext;
+        public EFUserRepository(VotingDbContext votingDbContext)
+        {
+            this.votingDbContext = votingDbContext;
+        }
 
         public async Task CreateAsync(User entity)
         {
@@ -50,6 +54,11 @@ namespace VotingApp.Infrastructure.Repositories
         public async Task<User?> GetAsync(int id)
         {
             return await votingDbContext.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int userId)
+        {
+            return await votingDbContext.Users.AnyAsync(u => u.Id == userId);
         }
 
         public async Task UpdateAsync(User entity)

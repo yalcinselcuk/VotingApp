@@ -12,5 +12,8 @@ namespace VotingApp.Services
     {
         IEnumerable<VoteResponse> GetVoteResponse();
         Task CreateVoteAsync(CreateNewVoteRequest createNewVoteRequest);
+        Task<UpdateVoteRequest> GetVoteForUpdateAsync(int id);
+        Task UpdateVote(UpdateVoteRequest updateVoteRequest);
+        Task<bool> VoteIsExists(int voteId);
     }
 }

@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VotingApp.Entities;
 
-namespace VotingApp.Entities
+namespace VotingApp.Dto.Requests
 {
-    public class Option : IEntity
+    public class UpdateOptionRequest
     {
         public int Id { get; set; }
 
@@ -15,8 +16,7 @@ namespace VotingApp.Entities
         public string Name { get; set; }
         public int Count { get; set; }
 
-        public int? PollId { get; set; }
+        public int PollId { get; set; }
         public Poll? Poll { get; set; }
-
     }
 }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VotingApp.Entities
+namespace VotingApp.Dto.Requests
 {
-    public class User : IEntity
+    public class UpdateUserRequest
     {
         public int Id { get; set; }
 
@@ -19,7 +19,5 @@ namespace VotingApp.Entities
 
         public string Role { get; set; }//sadece anket oluşturması için
         public string UserName { get; set; }
-
-        
     }
 }

@@ -50,7 +50,17 @@ namespace VotingApp.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<bool> IsExistsAsync(int pollId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task UpdateAsync(Poll entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<Poll>> IPollRepository.GetPollsByName(string name)
         {
             throw new NotImplementedException();
         }

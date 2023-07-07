@@ -13,8 +13,8 @@ namespace VotingApp.Infrastructure.Data
         {
             //seedVoteIfNotExist(dbContext);
             seedUserIfNotExist(dbContext);
-            seedQuestionIfNotExist(dbContext);
             seedPollIfNotExist(dbContext);
+            seedQuestionIfNotExist(dbContext);
             seedOptionIfNotExist(dbContext);
         }
 
@@ -37,10 +37,12 @@ namespace VotingApp.Infrastructure.Data
             {
                 var users = new List<User>()
                 {
-                    new User { Id = 1, FirstName = "Yalçın", LastName = "Selçuk", Email = "yalcinselcuk@gmail.com", Password = "123", Role = "Admin", UserName="selcuk"},
-                    new User { Id = 2, FirstName = "Türkay", LastName = "Ürkmez", Email = "turkayurkmez@gmail.com", Password = "123", Role = "Admin", UserName="turko"},
-                    new User { Id = 3, FirstName = "Turkcell", LastName = "A.Ş.", Email = "turkcell@gmail.com", Password = "123", Role = "Admin", UserName="turkcell"}
+                    new User { FirstName = "Yalçın", LastName = "Selçuk", Email = "yalcinselcuk@gmail.com", Password = "123", Role = "Admin", UserName="selcuk"},
+                    new User { FirstName = "Türkay", LastName = "Ürkmez", Email = "turkayurkmez@gmail.com", Password = "123", Role = "Admin", UserName="turko"},
+                    new User { FirstName = "Turkcell", LastName = "A.Ş.", Email = "turkcell@gmail.com", Password = "123", Role = "Admin", UserName="turkcell"}
                 };
+                dbContext.Users.AddRange(users);
+                dbContext.SaveChanges();
             }
         }
         private static void seedQuestionIfNotExist(VotingDbContext dbContext)
@@ -49,35 +51,13 @@ namespace VotingApp.Infrastructure.Data
             {
                 var questions = new List<Question>()
                 {
-                    new Question{Id = 1, Title = "Hangi araba daha iyi", 
-                                            Options = new List<Option>(){
-                                                new Option {Id=1, Name="BMW",Count=3, PollId=1 },
-                                                new Option {Id=2, Name="Audi",Count=6, PollId=1 },
-                                                new Option {Id=3, Name="Mercedes",Count=1, PollId=1  }
-                                            }
-                    },
-                    new Question{Id = 2,  Title="Hangi araba rengi daha iyi", 
-                                            Options = new List<Option>(){
-                                                new Option {Id=4, Name="kırmızı",Count=3, PollId=1 },
-                                                new Option {Id=5, Name="sarı",Count=6, PollId=1 },
-                                                new Option {Id=6, Name="siyah",Count=1, PollId=1  }
-                                            }
-                    },
-                    new Question{Id = 3,  Title="Hangi pc daha iyi", 
-                                            Options = new List<Option>(){
-                                                new Option {Id=7, Name="Acer",Count=3, PollId=2 },
-                                                new Option {Id=8, Name="Lenovo",Count=6, PollId=2 },
-                                                new Option {Id=9, Name="Casper",Count=1, PollId=2  }
-                                            }
-                    },
-                    new Question{Id = 4,  Title="Hangi pc rengi daha iyi",
-                                            Options = new List<Option>(){
-                                                new Option {Id=10, Name="siyah",Count=3, PollId=2 },
-                                                new Option {Id=11, Name="beyaz",Count=6, PollId=2 },
-                                                new Option {Id=12, Name="krem",Count=1, PollId=2 }
-                                            }
-                    }
+                    new Question{ Title = "Hangi araba daha iyi" },
+                    new Question{ Title="Hangi araba rengi daha iyi"},
+                    new Question{ Title="Hangi pc daha iyi" },
+                    new Question{ Title="Hangi pc rengi daha iyi" }
                 };
+                dbContext.Questions.AddRange(questions);
+                dbContext.SaveChanges();
             }
         }
         private static void seedPollIfNotExist(VotingDbContext dbContext)
@@ -86,46 +66,46 @@ namespace VotingApp.Infrastructure.Data
             {
                 var polls = new List<Poll>()
                 {
-                    new Poll{ Id = 1, Title = "Araba", Description = "Arabalar hakkında anket", CreatedById = 1,
-                        CreatedBy = new User { Id = 1, FirstName = "Yalçın", LastName = "Selçuk", Email = "yalcinselcukkk@outlook.com", Password = "123", Role = "Admin", UserName = "selçuk" },
-                        Questions = new List<Question>(){
-                                        new Question{Id = 1,  Title="Hangi araba daha iyi",
-                                            Options = new List<Option>(){
-                                                new Option {Id=1, Name="BMW",Count=3, PollId=1 },
-                                                new Option {Id=2, Name="Audi",Count=6, PollId=1 },
-                                                new Option {Id=3, Name="Mercedes",Count=1, PollId=1 }
-                                            }
-                                        },
-                                        new Question{Id = 2,  Title="Hangi araba rengi daha iyi",
-                                            Options = new List<Option>(){
-                                                new Option {Id=4, Name="kırmızı",Count=3, PollId=1 },
-                                                new Option {Id=5, Name="sarı",Count=6, PollId=1 },
-                                                new Option {Id=6, Name="siyah",Count=1, PollId=1 }
-                                            }
-                                        }
-                        }
+                    new Poll{ Title = "Araba", Description = "Arabalar hakkında anket", CreatedById = 1 },
+                        //Questions = new List<Question>(){
+                        //                new Question{Id = 1,  Title="Hangi araba daha iyi",
+                        //                    Options = new List<Option>(){
+                        //                        new Option {Id=1, Name="BMW",Count=3, PollId=1 },
+                        //                        new Option {Id=2, Name="Audi",Count=6, PollId=1 },
+                        //                        new Option {Id=3, Name="Mercedes",Count=1, PollId=1 }
+                        //                    }
+                        //                },
+                        //                new Question{Id = 2,  Title="Hangi araba rengi daha iyi",
+                        //                    Options = new List<Option>(){
+                        //                        new Option {Id=4, Name="kırmızı",Count=3, PollId=1 },
+                        //                        new Option {Id=5, Name="sarı",Count=6, PollId=1 },
+                        //                        new Option {Id=6, Name="siyah",Count=1, PollId=1 }
+                        //                    }
+                        //                }
+                        //}
 
-                    },
-                    new Poll{ Id = 2, Title = "Bilgisayar", Description = "Bilgisayar hakkında anket", CreatedById = 1,
-                        CreatedBy = new User { Id = 1, FirstName = "Yalçın", LastName = "Selçuk", Email = "yalcinselcukkk@outlook.com", Password = "123", Role = "Admin", UserName = "selçuk" },
-                        Questions = new List<Question>(){
-                                        new Question{Id = 3,  Title="Hangi pc daha iyi",
-                                            Options = new List<Option>(){
-                                                new Option {Id=7, Name="Acer",Count=3, PollId=2 },
-                                                new Option {Id=8, Name="Lenovo",Count=6, PollId=2 },
-                                                new Option {Id=9, Name="Casper",Count=1, PollId=2 }
-                                            }
-                                        },
-                                        new Question{Id = 4,  Title="Hangi pc rengi daha iyi",
-                                            Options = new List<Option>(){
-                                                new Option {Id=10, Name="siyah",Count=3, PollId=2 },
-                                                new Option {Id=11, Name="beyaz",Count=6, PollId=2 },
-                                                new Option {Id=12, Name="krem",Count=1, PollId=2 }
-                                            }
-                                        }
-                        }
-                    }
+                    //},
+                    new Poll{ Title = "Bilgisayar", Description = "Bilgisayar hakkında anket", CreatedById = 1 }//,
+                        //Questions = new List<Question>(){
+                        //                new Question{Id = 3,  Title="Hangi pc daha iyi",
+                        //                    Options = new List<Option>(){
+                        //                        new Option {Id=7, Name="Acer",Count=3, PollId=2 },
+                        //                        new Option {Id=8, Name="Lenovo",Count=6, PollId=2 },
+                        //                        new Option {Id=9, Name="Casper",Count=1, PollId=2 }
+                        //                    }
+                        //                },
+                        //                new Question{Id = 4,  Title="Hangi pc rengi daha iyi",
+                        //                    Options = new List<Option>(){
+                        //                        new Option {Id=10, Name="siyah",Count=3, PollId=2 },
+                        //                        new Option {Id=11, Name="beyaz",Count=6, PollId=2 },
+                        //                        new Option {Id=12, Name="krem",Count=1, PollId=2 }
+                        //                    }
+                        //                }
+                        //}
+                    //}
                 };
+                dbContext.Polls.AddRange(polls);
+                dbContext.SaveChanges();
             }
 
         }
@@ -135,20 +115,22 @@ namespace VotingApp.Infrastructure.Data
             {
                 var options = new List<Option>()
                 {
-                    new Option {Id=1, Name="BMW",Count=3, PollId=1 },
-                    new Option {Id=2, Name="Audi",Count=6, PollId=1 },
-                    new Option {Id=3, Name="Mercedes",Count=1, PollId=1 },
-                    new Option {Id=4, Name="kırmızı",Count=3, PollId=1 },
-                    new Option {Id=5, Name="sarı",Count=6, PollId=1 },
-                    new Option {Id=6, Name="siyah",Count=1, PollId=1 },
-                    new Option {Id=7, Name="Acer",Count=3, PollId=2 },
-                    new Option {Id=8, Name="Lenovo",Count=6, PollId=2 },
-                    new Option {Id=9, Name="Casper",Count=1, PollId=2 },
-                    new Option {Id=10, Name="siyah",Count=3, PollId=2 },
-                    new Option {Id=11, Name="beyaz",Count=6, PollId=2 },
-                    new Option {Id=12, Name="krem",Count=1, PollId=2 }
+                    new Option {Name="BMW",Count=3},
+                    new Option {Name="Audi",Count=6},
+                    new Option {Name="Mercedes",Count=1},
+                    new Option {Name="kırmızı",Count=3},
+                    new Option {Name="sarı",Count=6},
+                    new Option {Name="siyah",Count=1},
+                    new Option {Name="Acer",Count=3},
+                    new Option {Name="Lenovo",Count=6},
+                    new Option {Name="Casper",Count=1},
+                    new Option {Name="siyah",Count=3},
+                    new Option {Name="beyaz",Count=6},
+                    new Option {Name="krem",Count=1}
 
                 };
+                dbContext.Options.AddRange(options);
+                dbContext.SaveChanges();
             }
         }
 

@@ -14,8 +14,8 @@ namespace VotingApp.Services.Mappings
     {
         public MapProfile() 
         {
-            CreateMap<Poll, PollResponse>();
             CreateMap<User, UserResponse>();
+            CreateMap<Poll, PollResponse>();
             CreateMap<Option, OptionService>();
             CreateMap<Question, QuestionResponse>();
             CreateMap<Vote, VoteResponse>();
@@ -25,6 +25,12 @@ namespace VotingApp.Services.Mappings
             CreateMap<CreateNewOptionRequest, Option>();
             CreateMap<CreateNewQuestionRequest, Question>();
             CreateMap<CreateNewVoteRequest, Vote>();
+
+            CreateMap<UpdateOptionRequest, Option>().ReverseMap();
+            CreateMap<UpdatePollRequest, Poll>().ReverseMap();
+            CreateMap<UpdateQuestionRequest, Question>().ReverseMap();
+            CreateMap<UpdateUserRequest, User>().ReverseMap();
+            CreateMap<UpdateVoteRequest, Vote>().ReverseMap();
 
         }
 

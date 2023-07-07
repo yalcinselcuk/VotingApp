@@ -45,6 +45,11 @@ namespace VotingApp.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<bool> IsExistsAsync(int voteId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task UpdateAsync(Vote entity)
         {
             throw new NotImplementedException();

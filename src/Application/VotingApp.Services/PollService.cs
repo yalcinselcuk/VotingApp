@@ -34,5 +34,22 @@ namespace VotingApp.Services
             var response = mapper.Map<IEnumerable<PollResponse>>(polls);
             return response;
         }
+        public async Task<UpdatePollRequest> GetPollForUpdateAsync(int id)
+        {
+            var poll = await pollRepository.GetAsync(id);
+            return mapper.Map<UpdatePollRequest>(poll);
+        }
+
+
+        public async Task<bool> PollIsExists(int pollId)
+        {
+            return await pollRepository.IsExistsAsync(pollId);
+        }
+
+        public async Task UpdatePoll(UpdatePollRequest updatePollRequest)
+        {
+            var poll = mapper.Map<Poll>(updatePollRequest);
+            await pollRepository.UpdateAsync(poll);
+        }
     }
 }

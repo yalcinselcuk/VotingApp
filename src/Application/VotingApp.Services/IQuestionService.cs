@@ -12,5 +12,8 @@ namespace VotingApp.Services
     {
         IEnumerable<QuestionResponse> GetQuestionResponse();
         Task CreateQuestionAsync(CreateNewQuestionRequest createNewQuestionRequest);
+        Task<UpdateQuestionRequest> GetQuestionForUpdateAsync(int id);
+        Task UpdateQuestion(UpdateQuestionRequest updateQuestionRequest);
+        Task<bool> QuestionIsExists(int questionId);
     }
 }
