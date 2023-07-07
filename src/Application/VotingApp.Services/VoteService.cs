@@ -51,5 +51,15 @@ namespace VotingApp.Services
             var vote = mapper.Map<Vote>(updateVoteRequest);
             await voteRepository.UpdateAsync(vote);
         }
+
+        public Task DeleteVote(DeleteVoteRequest deleteVoteRequest)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DeleteUserRequest> GetUserForDeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace VotingApp.Services.Mappings
         {
             CreateMap<User, UserResponse>();
             CreateMap<Poll, PollResponse>();
-            CreateMap<Option, OptionService>();
+            CreateMap<Option, OptionResponse>();
             CreateMap<Question, QuestionResponse>();
             CreateMap<Vote, VoteResponse>();
 

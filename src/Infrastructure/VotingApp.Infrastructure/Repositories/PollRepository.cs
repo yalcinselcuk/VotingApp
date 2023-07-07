@@ -15,6 +15,11 @@ namespace VotingApp.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task DeleteAsync(Poll entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task DeleteAync(int id)
         {
             throw new NotImplementedException();
