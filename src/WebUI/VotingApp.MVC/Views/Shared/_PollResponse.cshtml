@@ -1,0 +1,10 @@
+﻿@model PollResponse
+
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+        <p class="card-text">@Model.Description</p>
+        <a href="@Url.Action("PollsIndex", "Home", new {id = Model.Id})" class="btn btn-primary">Ankete Git</a>
+    </div>
+</div>

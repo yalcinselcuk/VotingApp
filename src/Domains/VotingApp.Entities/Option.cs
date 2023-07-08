@@ -13,10 +13,9 @@ namespace VotingApp.Entities
 
         [Required]
         public string Name { get; set; }
-        public int Count { get; set; }
-
-        public int? PollId { get; set; }
-        public Poll? Poll { get; set; }
+        
+        public int? VoteId { get; set; }
+        public ICollection<Vote?> Votes { get; set; }
 
     }
 }

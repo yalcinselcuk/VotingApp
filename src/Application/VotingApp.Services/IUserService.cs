@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Dto.Requests;
 using VotingApp.Dto.Responses;
+using VotingApp.Entities;
 
 namespace VotingApp.Services
 {
@@ -19,5 +20,6 @@ namespace VotingApp.Services
         Task<DeleteUserRequest> GetUserForDeleteAsync(int id);
         Task<UpdateUserRequest> GetUserForUpdateAsync(int id);
         Task<bool> UserIsExists(int userId);
+        User ValidateUser(string username, string password);
     }
 }

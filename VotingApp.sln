@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C8392358-CC97-4014-87F4-258D46315CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.MVC", "src\WebUI\VotingApp.MVC\VotingApp.MVC.csproj", "{E2DF100C-9222-4969-AC97-C2A0C8E2DB8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.MVC", "src\WebUI\VotingApp.MVC\VotingApp.MVC.csproj", "{E2DF100C-9222-4969-AC97-C2A0C8E2DB8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.API", "src\WebAPI\VotingApp.API\VotingApp.API.csproj", "{7D8960CE-3D29-475A-9F33-595CF099D342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.API", "src\WebAPI\VotingApp.API\VotingApp.API.csproj", "{7D8960CE-3D29-475A-9F33-595CF099D342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Entities", "src\Domains\VotingApp.Entities\VotingApp.Entities.csproj", "{D05312D2-0E11-4F7E-A6A7-BD69347F27EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Entities", "src\Domains\VotingApp.Entities\VotingApp.Entities.csproj", "{D05312D2-0E11-4F7E-A6A7-BD69347F27EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Infrastructure", "src\Infrastructure\VotingApp.Infrastructure\VotingApp.Infrastructure.csproj", "{7AF30BB9-61FC-4EC3-9BDA-388FA1DCAAAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Infrastructure", "src\Infrastructure\VotingApp.Infrastructure\VotingApp.Infrastructure.csproj", "{7AF30BB9-61FC-4EC3-9BDA-388FA1DCAAAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Dto", "src\Application\VotingApp.Dto\VotingApp.Dto.csproj", "{8D28FF50-200C-40E6-AEBF-BB21CA608474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Dto", "src\Application\VotingApp.Dto\VotingApp.Dto.csproj", "{8D28FF50-200C-40E6-AEBF-BB21CA608474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Services", "src\Application\VotingApp.Services\VotingApp.Services.csproj", "{70F18784-6C5A-44C5-AFC1-9531F952FF3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Services", "src\Application\VotingApp.Services\VotingApp.Services.csproj", "{70F18784-6C5A-44C5-AFC1-9531F952FF3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

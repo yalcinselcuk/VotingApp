@@ -3,6 +3,7 @@ using VotingApp.Infrastructure.Repositories;
 using VotingApp.Services;
 using VotingApp.Services.Mappings;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,15 @@ builder.Services.AddSession(opt =>
 var connectionString = builder.Configuration.GetConnectionString("db");
 builder.Services.AddDbContext<VotingDbContext>(option => option.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();//migration'da oluşabilecek hataları döndürür
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(opt =>
+                {
+                    opt.LoginPath = "/Users/Login";
+                    opt.AccessDeniedPath = "/Users/AccessDenied";
+                    opt.ReturnUrlParameter = "gidilecekSayfa";
+                });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -53,7 +63,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -69,5 +69,9 @@ namespace VotingApp.Services
             await userRepository.CreateAsync(user);
             return user.Id;
         }
+        public User ValidateUser(string username, string password)
+        {
+            return userRepository.IsExistsUser(username, password);
+        }
     }
 }

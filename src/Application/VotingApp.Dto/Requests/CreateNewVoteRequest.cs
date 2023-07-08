@@ -12,12 +12,8 @@ namespace VotingApp.Dto.Requests
     {
         [Required]
         public string Value { get; set; }
-        public int? OptionId { get; set; }
-        public Option? Option { get; set; }
+        public int Count { get; set; }
 
-        public int? PollId { get; set; }
-        public Poll? Poll { get; set; }
-        public int? UserId { get; set; }//boş geçilebilir
-        public User? User { get; set; }
+
     }
 }

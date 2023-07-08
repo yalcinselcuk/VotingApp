@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,11 @@ namespace VotingApp.Dto.Responses
     public class OptionResponse
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Count { get; set; }
 
-        public int PollId { get; set; }
-        public Poll Poll { get; set; }
+        [Required]
+        public string Name { get; set; }
+
+        public int? VoteId { get; set; }
+        public ICollection<Vote?> Votes { get; set; }
     }
 }

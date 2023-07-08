@@ -62,6 +62,11 @@ namespace VotingApp.Infrastructure.Repositories
             return await votingDbContext.Users.AnyAsync(u => u.Id == userId);
         }
 
+        public User? IsExistsUser(string username, string password)
+        {
+            return  votingDbContext.Users.FirstOrDefault(u => u.UserName== username && u.Password == password);
+        }
+
         public async Task UpdateAsync(User entity)
         {
             votingDbContext.Users.Update(entity);
